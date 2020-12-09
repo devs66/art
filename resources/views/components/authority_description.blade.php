@@ -1,6 +1,6 @@
 <p class="lead">
     @if ($author->birth_date || $author->birth_place)
-        *
+        *&#xFE0E;
     @endif
 
     @if ($author->birth_date)
@@ -16,7 +16,7 @@
     @endif
 
     @if ($author->death_date || $author->death_place)
-        ✝
+        ✝&#xFE0E;
     @endif
 
     @if ($author->death_date)

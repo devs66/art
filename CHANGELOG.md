@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file[^1].
 - SGP into list of galleries in the info page
 - Run tests on GitHub Actions
 
+### Fixed
+- force autor lifespan icons to be rendered as symbols
+
 ## [2.13.0] - 2020-11-27
 ### Added
 - Add 'copy citation' button to artwork detail
