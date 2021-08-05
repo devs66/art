@@ -53,14 +53,16 @@ class GmuhkItemMapper extends AbstractMapper
         return $row['dating'][0];
     }
 
-    public function mapTechnique(array $row)
+    public function mapTechnique(array $row, $locale)
     {
-        return $row['technique'][0];
+        $key = sprintf("gmuhk.%s", $row['technique'][0]);
+        return $this->translator->get($key, [], $locale);
     }
 
-    public function mapMedium(array $row)
+    public function mapMedium(array $row, $locale)
     {
-        return $row['medium'][0];
+        $key = sprintf("gmuhk.%s", $row['medium'][0]);
+        return $this->translator->get($key, [], $locale);
     }
     
     public function mapMeasurement(array $row, $locale)
@@ -92,6 +94,6 @@ class GmuhkItemMapper extends AbstractMapper
     public function mapWorkType(array $row, $locale)
     {
         $abbr = Str::after($row['work_type'][0], ':');
-        return $this->translator->get(sprintf('gmuhk.work_types.%s', $abbr), [], $locale);
+        return $this->translator->get(sprintf('gmuhk.work_type.%s', $abbr), [], $locale);
     }
 }
