@@ -18,6 +18,7 @@ mix
     .js('resources/js/admin.js', 'public/js')
     .vue()
     .extract([
+        '@headlessui/vue',
         'bootstrap/dist/js/bootstrap',
         'flickity',
         'clipboard',
