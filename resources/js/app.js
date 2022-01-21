@@ -26,12 +26,24 @@ require('./components/clipboard-button')
 require('./components/newsletter-signup-form-tracker')
 
 // Vue components
-import Vue from 'vue'
+import Vue, { configureCompat } from 'vue'
 import 'livewire-vue'
 import { Lang } from 'laravel-vue-lang';
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
 window.Vue = Vue
 Vue.use(Lang, { fallback: 'sk' })
+
+// disable compat for certain features
+configureCompat({
+    INSTANCE_LISTENERS: false,
+})
+
+Vue.component('tab-group', TabGroup);
+Vue.component('tab-list', TabList);
+Vue.component('tab', Tab);
+Vue.component('tab-panels', TabPanels);
+Vue.component('tab-panel', TabPanel);
 
 Vue.component('filter-sort-by', require('./components/filter/SortBy.vue').default);
 Vue.component('filter-checkbox', require('./components/filter/Checkbox.vue').default);
@@ -53,6 +65,7 @@ Vue.component('user-interaction-context', require('./components/UserInteractionC
 Vue.component('livewire-vue-adaptor', require('./components/LivewireVueAdaptor.vue').default);
 Vue.component('slider', require('./components/vue/slider').default);
 Vue.component('color-slider', require('./components/vue/color-slider').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

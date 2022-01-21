@@ -3,15 +3,15 @@
         <div class="inline_input__spacer">{{ currentValue || placeholder }}</div>
         <div class="inline_input__textarea-wrapper" v-if="!disabled">
             <textarea
+                v-bind="$attrs"
                 ref="input"
                 v-model="currentValue"
-                v-bind="$attrs"
                 v-on="$listeners"
 
                 :placeholder="placeholder"
                 :aria-label="placeholder"
                 @keydown.enter.prevent
-            /></textarea>
+            ></textarea>
         </div>
         <div class="inline_input__pencil" v-if="!disabled">
             <i class="fa fa-pencil"></i>

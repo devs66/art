@@ -55,7 +55,29 @@ mix
 
     .options({
         processCssUrls: !process.env.MIX_SKIP_CSS_URL_PROCESSING
-    });
+    })
+    .webpackConfig({
+        resolve: {
+            alias: {
+              vue: '@vue/compat'
+            }
+          },
+          module: {
+            rules: [
+              {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                  compilerOptions: {
+                    compatConfig: {
+                      MODE: 2
+                    }
+                  }
+                }
+              }
+            ]
+          }
+    })
 
 if (mix.inProduction()) {
     mix.version();
